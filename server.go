@@ -20,7 +20,7 @@ func main() {
 	e.Use(middleware.Recover())
 
 	// Load CA certificate
-	caCert, err := os.ReadFile("certs/ca.crt")
+	caCert, err := os.ReadFile("/etc/ssl/certs/vg-ca.pem")
 	if err != nil {
 		e.Logger.Fatalf("Error reading CA certificate: %v", err)
 	}
@@ -32,7 +32,7 @@ func main() {
 	}
 
 	// Load server certificate dan key
-	serverCert, err := tls.LoadX509KeyPair("certs/server.crt", "certs/server.key")
+	serverCert, err := tls.LoadX509KeyPair("/etc/ssl/certs/client_cert.pem", "/etc/ssl/private/client_key.key")
 	if err != nil {
 		e.Logger.Fatalf("Error loading server certificate: %v", err)
 	}

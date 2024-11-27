@@ -13,7 +13,7 @@ import (
 
 func createMTLSClient() *http.Client {
 	// Load CA certificate
-	caCert, err := os.ReadFile("certs/ca.crt")
+	caCert, err := os.ReadFile("/etc/ssl/certs/vg-ca.pem")
 	if err != nil {
 		log.Fatalf("Error reading CA certificate: %v", err)
 	}
@@ -25,7 +25,7 @@ func createMTLSClient() *http.Client {
 	}
 
 	// Load client certificate and key
-	clientCert, err := tls.LoadX509KeyPair("certs/client.crt", "certs/client.key")
+	clientCert, err := tls.LoadX509KeyPair("/etc/ssl/certs/client_cert.pem", "/etc/ssl/private/client_key.key")
 	if err != nil {
 		log.Fatalf("Error loading client certificate: %v", err)
 	}
