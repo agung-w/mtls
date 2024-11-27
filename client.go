@@ -72,7 +72,7 @@ func main() {
 	mtlsClient := createMTLSClient()
 
 	// API endpoint (replace with your actual endpoint)
-	apiURL := "https://your-mtls-api-endpoint.com/api/path"
+	apiURL := "https://agung-w.dms.local:8443"
 
 	// Make API request
 	makeAPIRequest(mtlsClient, apiURL)
